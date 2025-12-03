@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Rizky & Aulia</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 1. OPENING LAYER -->
+  <div id="opening-layer">
+    <!-- Floating petals will be added here by JS -->
+    <div class="cover-content">
+      <p class="cover-subtitle">The Wedding Of</p>
+      <h1 class="cover-title script-font">Taufiq & Regina</h1>
+      <p style="margin-bottom: 1rem; font-style: italic;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <button class="btn-open" onclick="openInvitation()">
+        <i class="fas fa-envelope-open"></i> Buka Undangan
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. MAIN CONTENT -->
+  <div id="main-content">
+
+    <!-- Header -->
+    <header class="section-padding fade-up">
+      <div class="wedding-date">31 . 01 . 2026</div>
+      <p style="margin-top: 1rem; font-style: italic;">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+      <br>
+      <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan kami:</p>
+      <br>
+      <h1 class="couple-names-main script-font">
+        <span class="twinkle" style="font-size: 1rem;">✦</span> Taufiq Ridwan
+      </h1>
+      <p class="font-bold">Putra dari Bpk. M Harudin & Ibu Heni</p>
+      <div style="font-family: var(--font-script); font-size: 2rem; color: var(--soft-gold); margin: 10px 0;">&</div>
+      <h1 class="couple-names-main script-font">
+        Regina Agni<span class="twinkle" style="font-size: 1rem;">✦</span>
+      </h1>
+      <p class="font-bold">Putri dari Bpk. Agus & Ibu Mulyani</p>
+
+      <div class="sweet-divider">
+        <i class="fas fa-heart"></i>
+      </div>
+    </header>
+
+    <!-- Childhood Photos -->
+    <section id="childhood" class="section-padding fade-up">
+      <h2 class="script-font" style="font-size: 2.5rem; color: var(--primary-blue);">Masa Kecil Kami</h2>
+      <p style="margin-bottom: 2rem;">Di mana cerita kami bermula...</p>
+
+      <div class="childhood-grid">
+        <!-- Using placeholder images that fit the theme -->
+        <div class="photo-frame">
+          <img
+            src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Masa Kecil Pria">
+          <div class="photo-caption">Taufiq Kecil</div>
+        </div>
+        <div class="photo-frame">
+          <img
+            src="https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Masa Kecil Wanita">
+          <div class="photo-caption">Regina Kecil</div>
+        </div>
+      </div>
+
+      <div class="sweet-divider">
+        <i class="fas fa-leaf"></i>
+      </div>
+    </section>
+
+    <!-- Event Details -->
+    <section id="event" class="section-padding fade-up">
+      <h2 class="script-font" style="font-size: 3rem; margin-bottom: 2rem;">Rangkaian Acara</h2>
+
+      <div class="event-box">
+        <h3 class="event-title">Akad Nikah</h3>
+        <div class="event-info">
+          <span><i class="far fa-calendar-alt event-icon"></i> Minggu, 10 Desember 2025</span>
+          <span><i class="far fa-clock event-icon"></i> 08.00 WIB - 10.00 WIB</span>
+          <span><i class="fas fa-map-marker-alt event-icon"></i> Masjid Agung Al-Azhar</span>
+        </div>
+        <a href="#" class="btn-map"><i class="fas fa-location-arrow"></i> Lihat Lokasi</a>
+      </div>
+
+      <div class="event-box">
+        <h3 class="event-title">Resepsi</h3>
+        <div class="event-info">
+          <span><i class="far fa-calendar-alt event-icon"></i> Minggu, 10 Desember 2025</span>
+          <span><i class="far fa-clock event-icon"></i> 10.00 WIB - Selesai</span>
+          <span><i class="fas fa-map-marker-alt event-icon"></i> Masjid Agung Al-Azhar</span>
+        </div>
+        <a href="#" class="btn-map"><i class="fas fa-location-arrow"></i> Lihat Lokasi</a>
+      </div>
+
+      <div class="sweet-divider">
+        <i class="fas fa-ring"></i>
+      </div>
+    </section>
+
+    <!-- Love Story -->
+    <section id="story" class="section-padding fade-up">
+      <h2 class="script-font" style="font-size: 2.5rem; margin-bottom: 2rem;">Kisah Cinta</h2>
+      <div class="timeline">
+        <div class="story-container left">
+          <h3 style="font-size: 1.2rem;">Pertama Bertemu</h3>
+          <p class="small text-muted">Januari 2018 - Di Kampus Biru</p>
+          <p style="font-size: 0.9rem;">Pertemuan tidak sengaja di perpustakaan yang mengawali segalanya.</p>
+        </div>
+        <div class="story-container right">
+          <h3 style="font-size: 1.2rem;">Mulai Bersama</h3>
+          <p class="small text-muted">Agustus 2019</p>
+          <p style="font-size: 0.9rem;">Kami memutuskan untuk melangkah bersama, saling mengenal lebih dalam.</p>
+        </div>
+        <div class="story-container left">
+          <h3 style="font-size: 1.2rem;">Lamaran</h3>
+          <p class="small text-muted">Mei 2025</p>
+          <p style="font-size: 0.9rem;">Dengan restu orang tua, kami mengikat janji untuk ke jenjang yang lebih serius.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section-padding fade-up rsvp-section">
+      <h2 style="margin-bottom: 1rem;">Kehadiran Anda</h2>
+      <p style="margin-bottom: 2rem;">Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
+        berkenan hadir untuk memberikan doa restu.</p>
+
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20akan%20hadir%20di%20pernikahan%20Taufiq%20&%20Regina"
+        target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <!-- SVG Wave Separator -->
+      <div class="footer-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <defs>
+            <pattern id="wave-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <rect width="60" height="60" fill="#F0F4F8" />
+              <g fill="none" fill-rule="evenodd">
+                <g fill="#5d7b9d" fill-opacity="0.05">
+                  <path
+                    d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" />
+                </g>
+              </g>
+            </pattern>
+          </defs>
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            fill="url(#wave-pattern)"></path>
+        </svg>
+      </div>
+
+      <div class="quote">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya
+        kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+        <br><br>
+        <strong>(QS. Ar-Rum: 21)</strong>
+      </div>
+      <br>
+      <h2 class="script-font" style="font-size: 2rem; color: var(--white);">Taufiq & Regina</h2>
+      <p style="font-size: 0.8rem; margin-top: 1rem;">Made with ❤️ for the happy couple</p>
+    </footer>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // 1. OPENING ANIMATION & LOGIC
+    function openInvitation() {
+      const cover = document.getElementById('opening-layer');
+      const mainContent = document.getElementById('main-content');
+
+      // Slide up cover
+      cover.classList.add('closed');
+
+      // Show main content immediately so transition is visible
+      mainContent.style.display = 'block';
+
+      // Optional: Play music here if browser allows
+      // var audio = new Audio('music.mp3'); audio.play();
+
+      // Allow body to scroll again (if locked)
+      document.body.style.overflowY = 'auto';
+    }
+
+    // 2. FALLING PETALS EFFECT (Vanilla JS)
+    function createPetals() {
+      const layer = document.getElementById('opening-layer');
+      const petalCount = 15; // Number of petals
+
+      for (let i = 0; i < petalCount; i++) {
+        let petal = document.createElement('div');
+        petal.classList.add('petal');
+
+        // Randomize size, position, and animation duration
+        let size = Math.random() * 10 + 10; // 10px to 20px
+        let left = Math.random() * 100; // 0% to 100%
+        let duration = Math.random() * 5 + 5; // 5s to 10s
+        let delay = Math.random() * 5;
+
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
+        petal.style.left = left + '%';
+        petal.style.animationDuration = duration + 's';
+        petal.style.animationDelay = delay + 's';
+
+        layer.appendChild(petal);
+      }
+    }
+
+    // 3. SCROLL REVEAL ANIMATION (Intersection Observer)
+    document.addEventListener('DOMContentLoaded', () => {
+      createPetals();
+
+      const observerOptions = {
+        threshold: 0.15 // Trigger when 15% of element is visible
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+
+</html>
