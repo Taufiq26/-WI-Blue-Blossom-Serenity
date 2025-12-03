@@ -29,6 +29,9 @@
       <p class="cover-subtitle">The Wedding Of</p>
       <h1 class="cover-title script-font">Taufiq & Regina</h1>
       <p style="margin-bottom: 1rem; font-style: italic;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <h3 id="guest-name"
+        style="font-family: var(--font-heading); color: var(--soft-gold); margin-bottom: 1.5rem; font-size: 1.3rem;">
+      </h3>
       <button class="btn-open" onclick="openInvitation()">
         <i class="fas fa-envelope-open"></i> Buka Undangan
       </button>
@@ -186,6 +189,22 @@
 
   <!-- SCRIPTS -->
   <script>
+    // GET GUEST NAME FROM URL PARAMETER
+    function getGuestName() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestName = urlParams.get('to');
+      const guestNameElement = document.getElementById('guest-name');
+
+      if (guestName) {
+        guestNameElement.textContent = decodeURIComponent(guestName);
+      } else {
+        guestNameElement.textContent = 'Tamu Undangan';
+      }
+    }
+
+    // Call on page load
+    getGuestName();
+
     // 1. OPENING ANIMATION & LOGIC
     function openInvitation() {
       const cover = document.getElementById('opening-layer');
