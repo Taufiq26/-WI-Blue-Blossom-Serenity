@@ -41,8 +41,25 @@
   <!-- 2. MAIN CONTENT -->
   <div id="main-content">
 
+    <!-- Top Quote -->
+    <section class="top-quote-container fade-up">
+      <div class="quote-decoration"><i class="fas fa-bismillah"></i></div>
+      <div class="quote highlight-quote">
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya
+        kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+        <br><br>
+        <strong>(QS. Ar-Rum: 21)</strong>
+      </div>
+      <div class="sweet-divider">
+        <i class="fas fa-leaf"></i>
+      </div>
+      <button class="btn-continue" onclick="continueToSite()">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </section>
+
     <!-- Header -->
-    <header class="section-padding fade-up">
+    <header id="main-header" class="section-padding fade-up">
       <div class="wedding-date">31 . 01 . 2026</div>
       <p style="margin-top: 1rem; font-style: italic;">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
       <br>
@@ -213,14 +230,52 @@
       // Slide up cover
       cover.classList.add('closed');
 
-      // Show main content immediately so transition is visible
+      // Show main content immediately
       mainContent.style.display = 'block';
 
       // Optional: Play music here if browser allows
       // var audio = new Audio('music.mp3'); audio.play();
 
-      // Allow body to scroll again (if locked)
+      // DO NOT unlock scroll here anymore. Scroll is unlocked by the continue button.
+      // document.body.style.overflowY = 'auto'; // Removed
+    }
+
+    // 2. UNLOCK & SMOOTH SCROLL (Click on "Continue" button)
+    function continueToSite() {
+      // 1. Unlock scroll
       document.body.style.overflowY = 'auto';
+
+      // 2. Custom Slow Smooth Scroll (2000ms = 2 seconds)
+      smoothScrollTo('main-header', 1500);
+    }
+
+    // CUSTOM SMOOTH SCROLL FUNCTION
+    function smoothScrollTo(targetId, duration) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      // Easing function for smooth acceleration/deceleration
+      function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
     }
 
     // 2. FALLING PETALS EFFECT (Vanilla JS)
