@@ -82,6 +82,32 @@
       </div>
     </header>
 
+    <!-- Countdown Timer -->
+    <section id="countdown" class="section-padding fade-up">
+      <h2 class="script-font" style="font-size: 2.5rem; color: var(--primary-blue);">Menuju Hari Bahagia</h2>
+      <div class="countdown-container">
+        <div class="time-box">
+          <span id="days">00</span>
+          <span class="label">Hari</span>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <span class="label">Jam</span>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <span class="label">Menit</span>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <span class="label">Detik</span>
+        </div>
+      </div>
+      <div class="sweet-divider">
+        <i class="fas fa-hourglass-half"></i>
+      </div>
+    </section>
+
     <!-- Childhood Photos -->
     <section id="childhood" class="section-padding fade-up">
       <h2 class="script-font" style="font-size: 2.5rem; color: var(--primary-blue);">Masa Kecil Kami</h2>
@@ -275,6 +301,39 @@
 
       requestAnimationFrame(animation);
     }
+
+    // 3. COUNTDOWN TIMER
+    function startCountdown() {
+      // Jan 31, 2026, 08:00 WIB
+      const targetDate = new Date('2026-01-31T08:00:00+07:00').getTime();
+
+      const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          clearInterval(timer);
+          document.querySelector('.countdown-container').innerHTML = "<h3 style='color:var(--primary-blue); font-family:var(--font-script); font-size:2rem;'>Alhamdulillah, Acara Telah Dimulai!</h3>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Safe check in case elements are missing
+        if (document.getElementById('days')) {
+          document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+          document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+          document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+          document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+      }, 1000);
+    }
+
+    // Start countdown immediately
+    startCountdown();
 
     // 2. FALLING PETALS EFFECT (Vanilla JS)
     function createPetals() {

@@ -693,3 +693,65 @@ body {
     max-width: 280px;
   }
 }
+
+/* --- COUNTDOWN TIMER --- */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: var(--white);
+  border: 1px solid var(--soft-gold);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(93, 123, 157, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.time-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-blue);
+}
+
+.time-box span:first-child {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.time-box .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--dark-blue);
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 480px) {
+  .countdown-container {
+    gap: 1rem;
+  }
+
+  .time-box {
+    min-width: 70px;
+    padding: 0.8rem;
+  }
+
+  .time-box span:first-child {
+    font-size: 1.5rem;
+  }
+
+  .time-box .label {
+    font-size: 0.7rem;
+  }
+}
