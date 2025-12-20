@@ -794,3 +794,61 @@ body {
 .btn-rsvp-no:hover {
   background-color: #7f8c8d;
 }
+
+/* --- WISH DISPLAY STYLES --- */
+.wish-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--primary-gold);
+  animation: fadeIn 0.5s ease;
+}
+
+.wish-name {
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.wish-message {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.wish-time {
+  font-size: 0.7rem;
+  color: #999;
+  margin-top: 8px;
+  text-align: right;
+}
+
+#wishes-display::-webkit-scrollbar {
+  width: 6px;
+}
+
+#wishes-display::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+#wishes-display::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

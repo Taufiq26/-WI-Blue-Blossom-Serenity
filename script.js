@@ -200,6 +200,7 @@ function submitRSVP(status) {
 
   // Prepare data
   const data = new FormData();
+  data.append('kategori', 'RSVP'); // Add category
   data.append('nama', guestName);
   data.append('status', status);
   data.append('tanggal', new Date().toLocaleString());
@@ -232,3 +233,97 @@ function completeRSVP(guestName) {
   // Optional: Auto-scroll to message
   confirmedMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
+
+// 5. WISHES LOGIC
+function submitWish() {
+  const nameInput = document.getElementById('wish-name');
+  const messageInput = document.getElementById('wish-message');
+  const btn = document.getElementById('btn-send-wish');
+
+  const originalText = btn.innerHTML;
+
+  if (!nameInput.value || !messageInput.value) {
+    alert('Mohon isi nama dan ucapan Anda.');
+    return;
+  }
+
+  // Show loading
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+  btn.disabled = true;
+
+  const data = new FormData();
+  data.append('kategori', 'Ucapan');
+  data.append('nama', nameInput.value);
+  data.append('pesan', messageInput.value);
+  data.append('tanggal', new Date().toLocaleString());
+
+  fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: data })
+    .then(response => {
+      alert('Terima kasih atas ucapan dan doa Anda!');
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+
+      // Clear form
+      nameInput.value = '';
+      messageInput.value = '';
+
+      // Reload wishes to show the new one
+      loadWishes();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('Maaf, terjadi kesalahan saat mengirim ucapan.');
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    });
+}
+
+// FETCH & DISPLAY WISHES
+function loadWishes() {
+  const displayContainer = document.getElementById('wishes-display');
+  if (!displayContainer) return;
+
+  fetch(GOOGLE_SCRIPT_URL) // doGet will be called
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        displayContainer.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">Belum ada ucapan. Jadilah yang pertama!</div>';
+        return;
+      }
+
+      // Sort: newest first
+      data.reverse();
+
+      displayContainer.innerHTML = '';
+      data.forEach(wish => {
+        const card = document.createElement('div');
+        card.className = 'wish-card';
+        card.innerHTML = `
+          <div class="wish-name"><i class="fas fa-user-circle"></i> ${wish.nama}</div>
+          <div class="wish-message">"${wish.pesan}"</div>
+          <div class="wish-time">${wish.tanggal}</div>
+        `;
+        displayContainer.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading wishes:', error);
+      displayContainer.innerHTML = '<div style="text-align:center; padding:20px; color:red;">Gagal memuat ucapan. Silakan segarkan halaman.</div>';
+    });
+}
+
+// PRE-FILL WISH NAME IF AVAILABLE
+function prefillWishName() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestName = urlParams.get('to');
+  if (guestName) {
+    const nameInput = document.getElementById('wish-name');
+    if (nameInput) nameInput.value = guestName;
+  }
+}
+
+// CALL PREFILL & LOAD WISHES ON LOAD
+document.addEventListener('DOMContentLoaded', () => {
+  prefillWishName();
+  loadWishes(); // Load wishes from GS
+});

@@ -7,10 +7,16 @@ Ikuti langkah-langkah berikut untuk menghubungkan website dengan Google Sheet ka
 ## 1. Buat Google Sheet Baru
 1. Buka [Google Sheets](https://sheets.new).
 2. Beri nama spreadsheet, misalnya: **"Data Tamu Undangan"**.
-3. Di **Baris 1**, buat header kolom berikut (urutan tidak masalah, tapi biar rapi):
-   - Kolom A: `Nama`
-   - Kolom B: `Status` (Hadir/Tidak)
-   - Kolom C: `Tanggal` (Waktu input)
+3. Buat 2 sheet baru, yaitu "Kehadiran" dan "Ucapan".
+4. Di **Baris 1**, buat header kolom berikut (urutan tidak masalah, tapi biar rapi):
+   - Sheet "Kehadiran":
+     - Kolom A: `Nama`
+     - Kolom B: `Status` (Hadir/Tidak)
+     - Kolom C: `Tanggal` (Waktu input)
+   - Sheet "Ucapan":
+     - Kolom A: `Nama`
+     - Kolom B: `Ucapan`
+     - Kolom C: `Tanggal` (Waktu input)
 
 ## 2. Buka Apps Script
 1. Di menu Google Sheet, klik **Extensions** (Ekstensi) > **Apps Script**.

@@ -221,6 +221,36 @@
       </div>
     </section>
 
+    <!-- WISHES SECTION -->
+    <section id="wishes" class="container fade-up" style="margin-top: 4rem; text-align: center; padding: 1.5rem">
+      <h2 style="font-family: var(--font-script); font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 1rem;">
+        Kirim Ucapan & Doa</h2>
+      <p style="margin-bottom: 2rem;">Tuliskan ucapan dan doa tulus untuk kedua mempelai.</p>
+
+      <div class="wish-form-container" style="max-width: 500px; margin: 0 auto; text-align: left;">
+        <div style="margin-bottom: 1rem;">
+          <input type="text" id="wish-name" placeholder="Nama Anda"
+            style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: var(--font-main);">
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <textarea id="wish-message" rows="4" placeholder="Tulis ucapan..."
+            style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: var(--font-main); resize: vertical;"></textarea>
+        </div>
+        <button id="btn-send-wish" onclick="submitWish()"
+          style="width: 100%; padding: 12px; background: var(--primary-blue); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.3s;">
+          <i class="fas fa-paper-plane"></i> Kirim Ucapan
+        </button>
+      </div>
+
+      <!-- WISHES LIST DISPLAY -->
+      <div id="wishes-display"
+        style="margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; max-height: 400px; overflow-y: auto; padding: 10px; background: rgba(255, 255, 255, 0.5); border-radius: 15px;">
+        <div style="text-align: center; color: var(--primary-blue);">
+          <i class="fas fa-spinner fa-spin"></i> Memuat ucapan...
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer>
       <!-- SVG Wave Separator -->
