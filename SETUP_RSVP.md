@@ -58,5 +58,16 @@ Ini adalah langkah paling krusial agar script bisa diakses oleh website.
    ```
 6. Ganti URL lama dengan URL barumu.
 
+## 6. Cara Update Kode (Jika ada perubahan)
+Jika kamu melakukan perubahan pada file `google-script-template.js` di komputer kamu, perubahan tersebut **tidak otomatis** masuk ke Google Sheets. Kamu harus mengupdate-nya secara manual:
+
+1. Buka kembali editor **Apps Script** di Google Sheet kamu.
+2. Copy kode terbaru dari `google-script-template.js` dan **Paste** (timpa) ke editor Apps Script.
+3. Klik tombol **Deploy** > **Manage deployments** (Kelola penerapan).
+4. Klik ikon **Pensil (Edit)** pada deployment yang aktif.
+5. Pada bagian **Version**, pilih **New version** (Versi baru).
+   > ⚠️ **PENTING**: Jika kamu tidak memilih "New version", Google akan tetap menjalankan kode versi lama meskipun editornya sudah kamu ubah.
+6. Klik **Deploy**.
+
 ## Selesai! 🎉
 Sekarang coba buka websitemu dengan parameter nama tamu (contoh: `index.html?to=CobaTamu`), klik tombol konfirmasi, dan cek apakah datanya masuk ke Google Sheet.
