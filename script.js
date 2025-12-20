@@ -68,6 +68,10 @@ function toggleMusic(event) {
 
 // 2. UNLOCK & SMOOTH SCROLL (Click on "Continue" button)
 function continueToSite() {
+  // 1. Add class to stop floating
+  const btn = document.querySelector('.btn-continue');
+  if (btn) btn.classList.add('is-clicked');
+
   // 1. Unlock scroll
   document.body.style.overflowY = 'auto';
 

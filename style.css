@@ -568,6 +568,30 @@ footer {
   color: var(--white);
 }
 
+/* Floating behavior for short screens */
+@media screen and (max-height: 700px) {
+  .btn-continue:not(.is-clicked) {
+    position: fixed;
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10000;
+    /* Released from transform trap! */
+    background-color: transparent;
+    backdrop-filter: none;
+    border: 2px solid var(--soft-gold);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 /* Ensure body starts without scroll */
 body {
   overflow-y: hidden;
