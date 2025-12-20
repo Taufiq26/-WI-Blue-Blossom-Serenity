@@ -841,6 +841,45 @@ body {
   border-radius: 10px;
 }
 
+/* --- MUSIC TOGGLE STYLES --- */
+.music-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-blue);
+  color: white;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.music-toggle.playing i {
+  animation: rotateDisc 3s linear infinite;
+}
+
+.music-toggle.paused {
+  opacity: 0.7;
+}
+
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -18,6 +18,8 @@ getGuestName();
 function openInvitation() {
   const cover = document.getElementById('opening-layer');
   const mainContent = document.getElementById('main-content');
+  const music = document.getElementById('background-music');
+  const musicControl = document.getElementById('music-control');
 
   // Slide up cover
   cover.classList.add('closed');
@@ -25,11 +27,43 @@ function openInvitation() {
   // Show main content immediately
   mainContent.style.display = 'block';
 
-  // Optional: Play music here if browser allows
-  // var audio = new Audio('music.mp3'); audio.play();
+  // Play background music
+  if (music) {
+    music.play().then(() => {
+      musicControl.style.display = 'flex';
+      musicControl.classList.add('playing');
+    }).catch(error => {
+      console.log("Autoplay blocked. User interaction needed.");
+      // Even if blocked, show the control so user can play manually
+      musicControl.style.display = 'flex';
+      musicControl.classList.add('paused');
+    });
+  }
 
   // DO NOT unlock scroll here anymore. Scroll is unlocked by the continue button.
   // document.body.style.overflowY = 'auto'; // Removed
+}
+
+function toggleMusic(event) {
+  if (event) event.stopPropagation();
+
+  const music = document.getElementById('background-music');
+  const musicControl = document.getElementById('music-control');
+  const musicIcon = document.getElementById('music-icon');
+
+  if (!music) return;
+
+  if (music.paused) {
+    music.play();
+    musicControl.classList.remove('paused');
+    musicControl.classList.add('playing');
+    musicIcon.className = 'fas fa-compact-disc';
+  } else {
+    music.pause();
+    musicControl.classList.remove('playing');
+    musicControl.classList.add('paused');
+    musicIcon.className = 'fas fa-circle-pause';
+  }
 }
 
 // 2. UNLOCK & SMOOTH SCROLL (Click on "Continue" button)
