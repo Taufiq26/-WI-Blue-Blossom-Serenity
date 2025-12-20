@@ -45,8 +45,8 @@
     <section class="top-quote-container fade-up">
       <div class="quote-decoration"><i class="fas fa-bismillah"></i></div>
       <div class="quote highlight-quote">
-        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya
-        kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri,
+        supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
         <br><br>
         <strong>(QS. Ar-Rum: 21)</strong>
       </div>
@@ -172,20 +172,26 @@
       <h2 class="script-font" style="font-size: 2.5rem; margin-bottom: 2rem;">Kisah Cinta</h2>
       <div class="timeline">
         <div class="story-container left">
-          <h3 style="font-size: 1.2rem;">Pertama Bertemu</h3>
-          <p class="small text-muted">Januari 2018 - Di Kampus Biru</p>
-          <p style="font-size: 0.9rem;">Pertemuan tidak sengaja di perpustakaan yang mengawali segalanya.</p>
+          <h3 style="font-size: 1.2rem;">Pertemuan Pertama</h3>
+          <p class="small text-muted">14 Juni 2025</p>
+          <p style="font-size: 0.9rem;">Semesta selalu punya cara untuk menciptakan sebuah temu. Jarak yang membentang
+            dan sesaknya rintangan tetap tak jadi penghalang agar dua insan dapat saling bertukar pandang, menyuguhkan
+            senyum, dan menyebutkan nama. Malam itu kala hujan selesai singgah di salah satu sudut Kota Bandung.</p>
         </div>
         <div class="story-container right">
-          <h3 style="font-size: 1.2rem;">Mulai Bersama</h3>
-          <p class="small text-muted">Agustus 2019</p>
-          <p style="font-size: 0.9rem;">Kami memutuskan untuk melangkah bersama, saling mengenal lebih dalam.</p>
+          <h3 style="font-size: 1.2rem;">Bertemunya Dua Keluarga</h3>
+          <p class="small text-muted">21 September 2025</p>
+          <p style="font-size: 0.9rem;">Katanya, pernikahan bukan hanya menyatukan dua anak adam, melainkan juga dua
+            keluarga. Maka saat episode perjalanan ini hampir menuju puncak, kami tak ingin dua keluarga melewatkannya.
+            Dua keluarga berhak tahu, dua keluarga berhak turut bahagia, hingga doa restu dari dua keluarga mengiringi
+            perjalanan kami selanjutnya.</p>
         </div>
         <div class="story-container left">
-          <h3 style="font-size: 1.2rem;">Lamaran</h3>
-          <p class="small text-muted">Mei 2025</p>
-          <p style="font-size: 0.9rem;">Dengan restu orang tua, kami mengikat janji untuk ke jenjang yang lebih serius.
-          </p>
+          <h3 style="font-size: 1.2rem;">Janji Suci</h3>
+          <p class="small text-muted">31 Januari 2026</p>
+          <p style="font-size: 0.9rem;">Atas izin dan ridha Allah, dimudahkan-Nya segala rintangan yang ada. Perjanjian
+            yang langsung disaksikan Allah dan para malaikat-Nya kelak akan segera terucap. Ini bukan akhir, melainkan
+            awal dari segalanya. Awal untuk selamanya. Tak hanya selama di dunia, melainkan juga di surga-Nya.</p>
         </div>
       </div>
     </section>
@@ -196,10 +202,23 @@
       <p style="margin-bottom: 2rem;">Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
         berkenan hadir untuk memberikan doa restu.</p>
 
-      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20akan%20hadir%20di%20pernikahan%20Taufiq%20&%20Regina"
-        target="_blank" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
-      </a>
+      <div id="rsvp-action-container" style="display: none; text-align: center;">
+        <p style="margin-bottom: 1rem; font-weight: bold; color: var(--primary-blue);">Apakah Anda akan hadir?</p>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+          <button id="btn-rsvp-hadir" class="btn-rsvp btn-rsvp-yes" onclick="submitRSVP('Hadir')">
+            <i class="fas fa-check-circle"></i> Saya Hadir
+          </button>
+          <button id="btn-rsvp-tidak" class="btn-rsvp btn-rsvp-no" onclick="submitRSVP('Tidak Hadir')">
+            <i class="fas fa-times-circle"></i> Maaf, Tidak Bisa
+          </button>
+        </div>
+      </div>
+
+      <div id="rsvp-confirmed-message"
+        style="display:none; color: var(--primary-blue); font-weight: bold; font-size: 1.2rem; background: rgba(255, 255, 255, 0.8); padding: 1rem; border-radius: 10px; max-width: 400px; margin: 0 auto;">
+        <i class="fas fa-check-double" style="color: #25D366; margin-right: 5px;"></i> Anda sudah melakukan konfirmasi.
+        <br><span style="font-size: 0.9rem; font-weight: normal;">Terima kasih atas doa restunya!</span>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -225,8 +244,8 @@
       </div>
 
       <div class="quote">
-        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya
-        kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri,
+        supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
         <br><br>
         <strong>(QS. Ar-Rum: 21)</strong>
       </div>
@@ -237,157 +256,7 @@
   </div>
 
   <!-- SCRIPTS -->
-  <script>
-    // GET GUEST NAME FROM URL PARAMETER
-    function getGuestName() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const guestName = urlParams.get('to');
-      const guestNameElement = document.getElementById('guest-name');
-
-      if (guestName) {
-        guestNameElement.textContent = decodeURIComponent(guestName);
-      } else {
-        guestNameElement.textContent = 'Tamu Undangan';
-      }
-    }
-
-    // Call on page load
-    getGuestName();
-
-    // 1. OPENING ANIMATION & LOGIC
-    function openInvitation() {
-      const cover = document.getElementById('opening-layer');
-      const mainContent = document.getElementById('main-content');
-
-      // Slide up cover
-      cover.classList.add('closed');
-
-      // Show main content immediately
-      mainContent.style.display = 'block';
-
-      // Optional: Play music here if browser allows
-      // var audio = new Audio('music.mp3'); audio.play();
-
-      // DO NOT unlock scroll here anymore. Scroll is unlocked by the continue button.
-      // document.body.style.overflowY = 'auto'; // Removed
-    }
-
-    // 2. UNLOCK & SMOOTH SCROLL (Click on "Continue" button)
-    function continueToSite() {
-      // 1. Unlock scroll
-      document.body.style.overflowY = 'auto';
-
-      // 2. Custom Slow Smooth Scroll (2000ms = 2 seconds)
-      smoothScrollTo('main-header', 1500);
-    }
-
-    // CUSTOM SMOOTH SCROLL FUNCTION
-    function smoothScrollTo(targetId, duration) {
-      const target = document.getElementById(targetId);
-      if (!target) return;
-
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      let startTime = null;
-
-      function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-
-      // Easing function for smooth acceleration/deceleration
-      function easeInOutQuad(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
-      }
-
-      requestAnimationFrame(animation);
-    }
-
-    // 3. COUNTDOWN TIMER
-    function startCountdown() {
-      // Jan 31, 2026, 08:00 WIB
-      const targetDate = new Date('2026-01-31T08:00:00+07:00').getTime();
-
-      const timer = setInterval(function () {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        if (distance < 0) {
-          clearInterval(timer);
-          document.querySelector('.countdown-container').innerHTML = "<h3 style='color:var(--primary-blue); font-family:var(--font-script); font-size:2rem;'>Alhamdulillah, Acara Telah Dimulai!</h3>";
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Safe check in case elements are missing
-        if (document.getElementById('days')) {
-          document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-          document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-          document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-          document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-        }
-      }, 1000);
-    }
-
-    // Start countdown immediately
-    startCountdown();
-
-    // 2. FALLING PETALS EFFECT (Vanilla JS)
-    function createPetals() {
-      const layer = document.getElementById('opening-layer');
-      const petalCount = 15; // Number of petals
-
-      for (let i = 0; i < petalCount; i++) {
-        let petal = document.createElement('div');
-        petal.classList.add('petal');
-
-        // Randomize size, position, and animation duration
-        let size = Math.random() * 10 + 10; // 10px to 20px
-        let left = Math.random() * 100; // 0% to 100%
-        let duration = Math.random() * 5 + 5; // 5s to 10s
-        let delay = Math.random() * 5;
-
-        petal.style.width = size + 'px';
-        petal.style.height = size + 'px';
-        petal.style.left = left + '%';
-        petal.style.animationDuration = duration + 's';
-        petal.style.animationDelay = delay + 's';
-
-        layer.appendChild(petal);
-      }
-    }
-
-    // 3. SCROLL REVEAL ANIMATION (Intersection Observer)
-    document.addEventListener('DOMContentLoaded', () => {
-      createPetals();
-
-      const observerOptions = {
-        threshold: 0.15 // Trigger when 15% of element is visible
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      const fadeElements = document.querySelectorAll('.fade-up');
-      fadeElements.forEach(el => observer.observe(el));
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
