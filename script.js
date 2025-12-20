@@ -107,30 +107,93 @@ function smoothScrollTo(targetId, duration) {
 // 3. COUNTDOWN TIMER
 function startCountdown() {
   // Jan 31, 2026, 08:00 WIB
-  const targetDate = new Date('2026-01-31T08:00:00+07:00').getTime();
+  const targetDate = new Date('2026-01-31T08:00:00+07:00');
+  const targetTime = targetDate.getTime();
+  const title = document.getElementById('countdown-title');
+  const yearsBox = document.querySelector('.box-years');
+  const monthsBox = document.querySelector('.box-months');
 
   const timer = setInterval(function () {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+    const now = new Date();
+    const nowTime = now.getTime();
+    let distance = targetTime - nowTime;
+    let isPast = false;
 
     if (distance < 0) {
-      clearInterval(timer);
-      document.querySelector('.countdown-container').innerHTML = "<h3 style='color:var(--primary-blue); font-family:var(--font-script); font-size:2rem;'>Alhamdulillah, Acara Telah Dimulai!</h3>";
-      return;
+      isPast = true;
+      distance = nowTime - targetTime; // Count UP
+      if (title) title.textContent = "Bahagia Bersama";
+      if (yearsBox) yearsBox.style.display = 'flex';
+      if (monthsBox) monthsBox.style.display = 'flex';
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Calculation logic for years, months, days, etc.
+    // For countdown, we use simpler math for D/H/M/S. 
+    // For count-up (Marriage age), we want calendar-accurate Y/M/D.
+    let years, months, days, hours, minutes, seconds;
 
-    // Safe check in case elements are missing
-    if (document.getElementById('days')) {
-      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    if (isPast) {
+      // COUNTER UP (Anniversary Mode)
+      // This is a more complex calculation to get accurate month differences
+      let startDate = targetDate;
+      let endDate = now;
+
+      years = endDate.getFullYear() - startDate.getFullYear();
+      months = endDate.getMonth() - startDate.getMonth();
+      days = endDate.getDate() - startDate.getDate();
+
+      if (days < 0) {
+        months--;
+        // Get days in previous month
+        let prevMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+        days += prevMonth;
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      hours = endDate.getHours() - startDate.getHours();
+      minutes = endDate.getMinutes() - startDate.getMinutes();
+      seconds = endDate.getSeconds() - startDate.getSeconds();
+
+      if (seconds < 0) {
+        minutes--;
+        seconds += 60;
+      }
+      if (minutes < 0) {
+        hours--;
+        minutes += 60;
+      }
+      if (hours < 0) {
+        days--; // This could rarely make days negative if not careful, but broadly works for this UI
+        hours += 24;
+      }
+    } else {
+      // COUNTDOWN (Simple mode)
+      years = 0;
+      months = 0;
+      days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      seconds = Math.floor((distance % (1000 * 60)) / 1000);
     }
+
+    // Render
+    const update = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val < 10 ? '0' + val : val;
+    };
+
+    if (isPast) {
+      update('years', years);
+      update('months', months);
+    }
+    update('days', days);
+    update('hours', hours);
+    update('minutes', minutes);
+    update('seconds', seconds);
+
   }, 1000);
 }
 

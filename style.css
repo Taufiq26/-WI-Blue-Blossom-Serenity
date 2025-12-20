@@ -698,8 +698,8 @@ body {
 .countdown-container {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem auto;
+  gap: 15px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 

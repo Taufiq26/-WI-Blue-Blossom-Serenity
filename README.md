@@ -6,7 +6,7 @@ Website undangan pernikahan digital yang elegan, interaktif, dan sangat ringan. 
 
 - **Cover Interaktif**: Pembuka halaman yang elegan dengan animasi kelopak bunga jatuh.
 - **Auto-Personalized**: Nama tamu otomatis berubah sesuai parameter URL (`?to=NamaTamu`).
-- **Countdown Timer**: Penghitung waktu mundur otomatis menuju hari bahagia.
+- **Smart Countdown & Anniversary**: Penghitung mundur otomatis menuju hari bahagia yang akan berubah menjadi penghitung "Usia Pernikahan" (count-up) setelah acara dimulai.
 - **Smart RSVP**: Konfirmasi kehadiran yang langsung tersimpan ke Google Sheets.
 - **Live Wishes**: Kirim ucapan dan doa yang akan langsung muncul di halaman website secara real-time.
 - **Save the Date**: Tombol integrasi langsung ke Google Calendar lengkap dengan jam dan lokasi.
