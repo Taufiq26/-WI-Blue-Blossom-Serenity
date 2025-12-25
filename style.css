@@ -915,3 +915,29 @@ body {
     transform: translateY(0);
   }
 }
+
+/* --- INSTAGRAM BUTTON --- */
+.instagram-btn {
+  display: block;
+  width: fit-content;
+  margin: 10px auto 0 auto;
+  padding: 6px 16px;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.instagram-btn:hover {
+  background-color: var(--dark-blue);
+  transform: translateY(-2px);
+  color: var(--white);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+.instagram-btn i {
+  margin-right: 5px;
+}
