@@ -428,3 +428,26 @@ document.addEventListener('DOMContentLoaded', () => {
   prefillWishName();
   loadWishes(); // Load wishes from GS
 });
+
+// 6. ANTI-DEBUGGING & SECURITY (Deterrent)
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+document.addEventListener('keydown', function(e) {
+  // F12
+  if (e.key === 'F12' || e.keyCode === 123) {
+    e.preventDefault();
+  }
+  // Ctrl+Shift+I (Inspect)
+  if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+    e.preventDefault();
+  }
+  // Ctrl+Shift+J (Console)
+  if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+    e.preventDefault();
+  }
+  // Ctrl+U (View Source)
+  if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+    e.preventDefault();
+  }
+});

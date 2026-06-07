@@ -1,0 +1,8 @@
+{
+  "name": "wedding-invitation-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:js": "npx -y javascript-obfuscator script.dev.js --output script.min.js --compact true --control-flow-flattening true --dead-code-injection true --string-array true --string-array-encoding rc4 --disable-console-output true"
+  }
+}

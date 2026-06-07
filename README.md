@@ -34,7 +34,22 @@ Website ini sangat sederhana karena hanya terdiri dari file statis.
 ## 📝 Konfigurasi
 - Ganti detail acara (Nama, Tanggal, Lokasi) langsung di file `index.html`.
 - Ganti asset foto di folder `assets/`.
-- Ubah URL Google Apps Script di file `script.js`.
+- Ubah URL Google Apps Script di file `script.dev.js`.
+
+---
+
+## 🔒 Keamanan & Obfuscasi
+Untuk melindungi *source code* (termasuk menyembunyikan link `GOOGLE_SCRIPT_URL`), website ini menggunakan teknik Javascript Obfuscation dan Anti-Inspect HTML.
+
+**Alur Kerja (Workflow):**
+1. Setiap kali Anda ingin mengubah logika atau URL Google Script, lakukan **HANYA** di file `script.dev.js`.
+2. Buka terminal pada folder proyek ini.
+3. Pastikan Node.js sudah terinstal, lalu jalankan perintah obfuscator:
+   ```bash
+   npm run build:js
+   ```
+4. Perintah tersebut akan otomatis membuat atau memperbarui file `script.min.js` menjadi format acak terenkripsi yang digunakan langsung oleh `index.html`.
+
 
 ---
 Dibuat dengan ❤️ untuk momen bahagia.
